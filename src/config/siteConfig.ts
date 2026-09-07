@@ -45,8 +45,8 @@ export const siteConfig: SiteConfig = {
 	// 站点副标题
 	subtitle: "Demo site",
 
-	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	// 站点 URL（GitHub Pages 项目站点地址）
+	site_url: "https://shadongdong123.github.io/Firefly",
 
 	// 站点描述
 	description:

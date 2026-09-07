@@ -65,11 +65,19 @@ const adapter = process.env.CF_WORKERS
 		})
 	: undefined;
 
+// GitHub Pages 项目站点（形如 https://user.github.io/Firefly）时，base 自动取子路径 /Firefly/
+// 使用独立域名或 user.github.io 根站点时 base 保持为 "/"
+const siteUrlPath = new URL(siteConfig.site_url).pathname.replace(/\/+$/, "");
+const base =
+	siteConfig.site_url.includes("github.io") && siteUrlPath
+		? siteUrlPath + "/"
+		: "/";
+
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
 
-	base: "/",
+	base,
 	trailingSlash: "always",
 
 	// 字体配置 - 只加载实际使用的字体，跳过未引用的以加快构建
